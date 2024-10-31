@@ -4,7 +4,7 @@ const createTransfersTable = async () => {
   const client = await pool.connect();
   try {
     const queryText = `
-      CREATE TABLE IF NOT EXISTS users (
+      CREATE TABLE IF NOT EXISTS transfer (
         id SERIAL PRIMARY KEY,
         transaction VARCHAR(100) NOT NULL,
         date VARCHAR(100) UNIQUE NOT NULL,
@@ -17,7 +17,7 @@ const createTransfersTable = async () => {
       );
     `;
     await client.query(queryText);
-    console.log('Tabela "users" criada com sucesso!');
+    console.log('Tabela "transfer" criada com sucesso!');
   } catch (err) {
     console.error("Erro ao criar tabela:", err);
   } finally {
